@@ -1,0 +1,34 @@
+# Dataset
+dataset/
+imagenes/
+
+# Modelos entrenados
+models/*.h5
+models/*.pb
+models/*.pt
+models/*.pth
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
