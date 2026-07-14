@@ -7,8 +7,8 @@ import pytest
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 
-from scripts.models import SmartParkingCNN
-from scripts.train import EarlyStopping, train_model
+from src.models import SmartParkingCNN
+from src.train import EarlyStopping, train_model
 
 
 class TestEarlyStopping:

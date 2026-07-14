@@ -52,7 +52,7 @@ colab = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["scripts*"]
+include = ["src*"]
 
 [tool.ruff]
 line-length = 100

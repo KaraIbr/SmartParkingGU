@@ -1,19 +1,21 @@
-# Dataset
-dataset/
-imagenes/
+# Data
 data/raw/video_samples/
+data/raw/videos/*.mp4
+data/raw/videos/*.avi
+data/raw/videos/*.mov
+data/raw/videos/*.mkv
 
 # Modelos entrenados
-models/*.h5
-models/*.pb
-models/*.pt
-models/*.pth
+outputs/models/*.h5
+outputs/models/*.pb
+outputs/models/*.pt
+outputs/models/*.pth
 
-# Video files (too large for git)
-Video/*.mp4
-Video/*.avi
-Video/*.mov
-Video/*.mkv
+# Reports y figuras (regenerados)
+outputs/reports/*
+outputs/figures/*
+!outputs/reports/.gitkeep
+!outputs/figures/.gitkeep
 
 # Archivos de Python
 __pycache__/
@@ -46,14 +48,5 @@ Thumbs.db
 *.log
 logs/
 
-# Experiment results ( regenerated)
-experiments/*/
-!experiments/.gitkeep
-
-# Reports ( regenerated)
-reports/figures/*
-!reports/figures/.gitkeep
-
-# Deliverables ( assembled at end)
-deliverable/*/
-!deliverable/.gitkeep
+# Cache
+.pytest_cache/

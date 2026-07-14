@@ -29,9 +29,9 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest tests/ -v --tb=short --cov=scripts --cov-report=term-missing
+        pytest tests/ -v --tb=short --cov=src --cov-report=term-missing
 
     - name: Check imports
       run: |
-        python -c "from scripts import SmartParkingCNN, train_model, evaluate_model"
+        python -c "from src import SmartParkingCNN, train_model, evaluate_model"
         print("All imports OK")

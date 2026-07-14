@@ -3,7 +3,7 @@
 import pytest
 import torch
 
-from scripts.models import SmartParkingCNN, get_model_info
+from src.models import SmartParkingCNN, get_model_info
 
 
 class TestSmartParkingCNN:

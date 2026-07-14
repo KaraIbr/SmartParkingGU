@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from scripts.evaluate import (
+from src.evaluate import (
     compare_models,
     plot_confusion_matrix,
     plot_pr_curve,

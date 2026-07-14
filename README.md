@@ -8,7 +8,7 @@ Sistema basado en Vision Artificial y Aprendizaje Profundo para detectar automat
 
 ## Diagramas
 
-Ver [DIAGRAMAS.md](DIAGRAMAS.md) para los diagramas de flujo del proyecto (arquitectura CNN, pipeline de datos, modulos, inferencia, entorno de ejecucion).
+Ver [DIAGRAMAS.md](docs/DIAGRAMAS.md) para los diagramas de flujo del proyecto (arquitectura CNN, pipeline de datos, modulos, inferencia, entorno de ejecucion).
 
 ## Quick Start
 
@@ -28,24 +28,33 @@ pytest tests/ -v
 
 ```
 SmartParkingGU/
-├── scripts/                    # Modulos del pipeline ML
+├── src/                        # Modulos del pipeline ML
 │   ├── models.py              # Arquitectura SmartParkingCNN
 │   ├── train.py               # Loop de entrenamiento + EarlyStopping
 │   ├── evaluate.py            # Metricas y visualizaciones
 │   ├── data.py                # Dataset personalizado
 │   ├── inference.py           # Prediccion con modelo serializado
-│   └── hyperparameter_search.py
+│   ├── hyperparameter_search.py
+│   └── utils/                 # Utilidades
+│       ├── extract_frames.py  # Extraccion de frames de video
+│       ├── analyze_videos.py  # Analisis CV de frames
+│       └── colab_connect.py   # Verificacion GPU/Colab
 ├── notebooks/                  # Notebooks de Colab
 │   ├── 01_dataset_overview.ipynb
 │   ├── 02_base_model_cnrpark.ipynb
-│   ├── 03_finetune_cnrpark.ipynb
-│   └── COLAB_EJECUCION.ipynb
+│   └── 03_finetune_cnrpark.ipynb
 ├── tests/                      # Tests unitarios (pytest)
-├── data/                       # Datos (raw, processed)
-├── models/                     # Modelos entrenados (.pt)
-├── experiments/                # Resultados de experimentos
-├── reports/                    # Figuras y reportes
-├── Video/                      # Videos de estacionamiento
+├── data/                       # Datos
+│   └── raw/
+│       ├── videos/            # Videos de estacionamiento (.mp4)
+│       └── frames/            # Frames extraidos de videos
+├── outputs/                    # Resultados generados
+│   ├── models/                # Modelos entrenados (.pt)
+│   ├── reports/               # Metricas y reportes
+│   └── figures/               # Figuras y graficas
+├── docs/                       # Documentacion adicional
+│   ├── plan.md                # Plan de accion
+│   └── DIAGRAMAS.md           # Diagramas de flujo
 ├── pyproject.toml              # Configuracion del proyecto
 └── requirements.txt            # Dependencias
 ```
@@ -222,7 +231,7 @@ Contiene aproximadamente 150,000 imágenes etiquetadas correspondientes a espaci
 La siguiente gráfica muestra la distribución de imágenes pertenecientes a cada categoría.
 
 ```text
-reports/figures/distribucion_clases.png
+outputs/figures/distribucion_clases.png
 ```
 
 ## Muestra Representativa de Imágenes

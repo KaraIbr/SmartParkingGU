@@ -7,7 +7,7 @@ import pytest
 import torch
 from PIL import Image
 
-from scripts.data import ParkingDataset, get_default_transforms
+from src.data import ParkingDataset, get_default_transforms
 
 
 def _create_fake_dataset(tmp_dir: str, split: str = 'train', n_images: int = 5) -> str:
