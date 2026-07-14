@@ -1,6 +1,7 @@
 # Dataset
 dataset/
 imagenes/
+data/raw/video_samples/
 
 # Modelos entrenados
 models/*.h5
@@ -8,11 +9,21 @@ models/*.pb
 models/*.pt
 models/*.pth
 
+# Video files (too large for git)
+Video/*.mp4
+Video/*.avi
+Video/*.mov
+Video/*.mkv
+
 # Archivos de Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg-info/
+*.egg
+dist/
+build/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -21,6 +32,7 @@ __pycache__/
 venv/
 env/
 .venv/
+.env
 
 # Archivos del sistema
 .DS_Store
@@ -32,3 +44,16 @@ Thumbs.db
 
 # Logs
 *.log
+logs/
+
+# Experiment results ( regenerated)
+experiments/*/
+!experiments/.gitkeep
+
+# Reports ( regenerated)
+reports/figures/*
+!reports/figures/.gitkeep
+
+# Deliverables ( assembled at end)
+deliverable/*/
+!deliverable/.gitkeep

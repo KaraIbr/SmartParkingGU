@@ -1,24 +1,63 @@
-# Sistema de Detección de Ocupación de Espacios de Estacionamiento Mediante Visión Artificial y Aprendizaje Profundo
+# SmartParkingGU - Sistema de Deteccion de Ocupacion de Estacionamiento
 
-## Descripción General
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![CI](https://github.com/KaraIbr/SmartParkingGU/actions/workflows/ci.yml/badge.svg)](https://github.com/KaraIbr/SmartParkingGU/actions)
 
-Este proyecto desarrolla una solución basada en Visión Artificial y Aprendizaje Profundo para detectar automáticamente la ocupación de espacios de estacionamiento utilizando imágenes capturadas por cámaras de vigilancia.
+Sistema basado en Vision Artificial y Aprendizaje Profundo para detectar automaticamente la ocupacion de espacios de estacionamiento utilizando imagenes de camaras de vigilancia.
 
-El sistema clasifica cada espacio de estacionamiento en una de dos categorías:
+## Diagramas
 
-* Ocupado
-* Libre
+Ver [DIAGRAMAS.md](DIAGRAMAS.md) para los diagramas de flujo del proyecto (arquitectura CNN, pipeline de datos, modulos, inferencia, entorno de ejecucion).
 
-La propuesta busca ofrecer una alternativa tecnológica a los sistemas tradicionales basados en sensores físicos, reduciendo costos de infraestructura, mantenimiento y escalabilidad, al mismo tiempo que mantiene altos niveles de precisión en la detección.
+## Quick Start
 
-El proyecto contempla:
+```bash
+# Clonar repositorio
+git clone https://github.com/KaraIbr/SmartParkingGU.git
+cd SmartParkingGU
 
-* Análisis exploratorio de datos (EDA)
-* Preprocesamiento y normalización de imágenes
-* División y preparación del conjunto de datos
-* Entrenamiento de modelos de Deep Learning
-* Evaluación de desempeño
-* Análisis de resultados y limitaciones
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Ejecutar tests
+pytest tests/ -v
+```
+
+## Estructura del Proyecto
+
+```
+SmartParkingGU/
+├── scripts/                    # Modulos del pipeline ML
+│   ├── models.py              # Arquitectura SmartParkingCNN
+│   ├── train.py               # Loop de entrenamiento + EarlyStopping
+│   ├── evaluate.py            # Metricas y visualizaciones
+│   ├── data.py                # Dataset personalizado
+│   ├── inference.py           # Prediccion con modelo serializado
+│   └── hyperparameter_search.py
+├── notebooks/                  # Notebooks de Colab
+│   ├── 01_dataset_overview.ipynb
+│   ├── 02_base_model_cnrpark.ipynb
+│   ├── 03_finetune_cnrpark.ipynb
+│   └── COLAB_EJECUCION.ipynb
+├── tests/                      # Tests unitarios (pytest)
+├── data/                       # Datos (raw, processed)
+├── models/                     # Modelos entrenados (.pt)
+├── experiments/                # Resultados de experimentos
+├── reports/                    # Figuras y reportes
+├── Video/                      # Videos de estacionamiento
+├── pyproject.toml              # Configuracion del proyecto
+└── requirements.txt            # Dependencias
+```
+
+## Metodologia
+
+1. **Exploracion de datos (EDA)** - Analisis del dataset CNRPark-Patches-150x150
+2. **Preprocesamiento** - Normalizacion, division train/val/test (70/15/15)
+3. **Entrenamiento base** - CNN desde cero en CNRPark
+4. **Fine-tuning** - Optimizacion de hiperparametros
+5. **Video** - Extraccion de frames y fine-tuning con datos propios
+6. **Evaluacion** - Metricas completas + comparacion de modelos
 
 
 
@@ -242,17 +281,20 @@ La metodología propuesta se compone de las siguientes etapas:
 
 ---
 
-# Tecnologías Utilizadas
+# Tecnologias Utilizadas
 
-| Tecnología           | Uso                       |
-| -------------------- | ------------------------- |
-| Python               | Desarrollo principal      |
-| NumPy                | Procesamiento numérico    |
-| Pandas               | Manipulación de datos     |
-| Matplotlib           | Visualización             |
-| Seaborn              | Análisis estadístico      |
-| TensorFlow / PyTorch | Entrenamiento del modelo  |
-| Google Colab         | Ejecución de experimentos |
+| Tecnologia          | Uso                          |
+| ------------------- | ---------------------------- |
+| Python 3.9+         | Desarrollo principal         |
+| PyTorch             | Framework de Deep Learning   |
+| TorchVision         | Transformaciones de imagen   |
+| NumPy               | Procesamiento numerico       |
+| Pandas              | Manipulacion de datos        |
+| Scikit-learn        | Metricas y evaluacion        |
+| OpenCV              | Procesamiento de video       |
+| Matplotlib/Seaborn  | Visualizacion                |
+| Google Colab        | Ejecucion de experimentos    |
+| pytest              | Testing                      |
 
 
 # Resultados
